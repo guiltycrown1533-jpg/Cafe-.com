@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/amplitudejs/dist/amplitude.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/amplitudejs/dist/amplitude.min.js"></script>
+
+    <meta charset="UTF-8" />
+    <title>Cafe@.com</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="amplitude-player">
+      <!-- Botões -->
+      <div class="controls">
+        <button class="amplitude-prev">⏮</button>
+        <button class="amplitude-play-pause">▶</button>
+        <button class="amplitude-next">⏭</button>
+      </div>
+
+      <!-- Capa da música -->
+      <img data-amplitude-song-info="cover_art_url" class="cover-art" />
+
+      <!-- Informações da música -->
+      <div class="song-info">
+        <span
+          class="amplitude-song-info"
+          data-amplitude-song-info="name"
+        ></span>
+        -
+        <span
+          class="amplitude-song-info"
+          data-amplitude-song-info="artist"
+        ></span>
+      </div>
+
+      <!-- Barra de progresso -->
+      <progress
+        class="amplitude-song-played-progress"
+        id="song-progress"
+      ></progress>
+
+      <!-- Volume -->
+      <input type="range" class="amplitude-volume-slider" />
+    </div>
+
+    <!-- Primeira seção -->
+    <section id="hero" class="hero">
+      <div class="overlay">
+        <h1>THIS IS<br />RHYTHM & SOUL</h1>
+        <p>Experience three days of unforgettable performances...</p>
+        <a href="#info" class="btn">LEARN MORE</a>
+      </div>
+    </section>
+
+    <!-- Segunda seção -->
+    <section id="info" class="info">
+      <h2>A CELEBRATION OF SOUND</h2>
+      <p>
+        Immerse yourself in a celebration of creativity, culture, and sound...
+      </p>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+      <p>&copy; 2026 Rhythm & Soul Festival. Todos os direitos reservados.</p>
+      <p>
+        <a href="#hero" class="back-top">Voltar ao topo</a> |
+        <a href="#info">Informações</a>
+      </p>
+    </footer>
+
+    <!-- Botão Voltar ao topo -->
+    <button id="backToTop">↑ Topo</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
