@@ -96,59 +96,112 @@ body {
   background-color: orangered;
 }
 
-/* Estilo para o player de música */
-#amplitude-player {
+/*Player de Musica*/
+/* Reset básico */
+body {
+  margin: 0;
+  padding-top: 0px; /* espaço para não ficar escondido atrás da barra */
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+/* Barra da playlist */
+.playlist-bar {
   position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #111;
-  color: #fff;
-  padding: 15px 25px;
-  border-radius: 12px;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  background: linear-gradient(90deg, #ffffff, #000000);
+  border-bottom: 1px solid #555;
+  color: #fff; /* texto branco */
   display: flex;
   align-items: center;
-  gap: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  z-index: 9999;
+  justify-content: space-between;
+
+  padding: 1px 10px;
+  gap: 5px;
+  height: 25px;
+
+  z-index: 9999; /* garante que fica acima do conteúdo */
 }
 
-#amplitude-player .cover-art {
-  width: 60px;
-  height: 60px;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-#amplitude-player .song-info {
-  flex: 1;
+/* Botões */
+.playlist-bar button {
+  background: #33333300;
+  border: 1px solid #55555500;
+  border-radius: 100px;
+  padding: 2px 2px;
+  color: #fff;
   font-size: 14px;
-  line-height: 1.4;
-}
-
-#amplitude-player .controls button {
-  background: darkorange;
-  border: none;
-  color: white;
-  padding: 10px 14px;
-  border-radius: 50%;
   cursor: pointer;
-  font-size: 16px;
-  transition: background 0.3s;
+  transition:
+    background 0.3s,
+    transform 0.2s;
 }
 
-#amplitude-player .controls button:hover {
-  background: orangered;
+.playlist-bar button:hover {
+  background: #1a141400;
+  transform: scale(1.5);
 }
 
-#song-progress {
-  width: 150px;
+.playlist-bar i {
+  font-size: 18px;
+  margin: 0 5px;
+  color: #000000;
+}
+
+/* Barra de progresso */
+#progress {
+  flex: 1;
+  height: 5px;
+  cursor: pointer;
+  accent-color: #ffffff;
+}
+
+/* Controle de volume */
+#volume-icon {
+  font-size: 18px;
+  margin: 0 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Barra do volume */
+#volume {
+  width: 100px;
   height: 6px;
   border-radius: 3px;
-  overflow: hidden;
+  appearance: none; /* remove estilo padrão */
+  background: linear-gradient(to right, #ff6600 100%, #444 0%); /* preenchimento inicial */
+  cursor: pointer;
 }
 
-.amplitude-volume-slider {
-  width: 80px;
+/* Thumb (bolinha) */
+#volume::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #ff6600;
+  cursor: pointer;
+  margin-top: -4px;
 }
 
+#volume::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #ff6600;
+  cursor: pointer;
+}
+
+
+/* Texto da faixa */
+#track-info {
+  font-size: 14px;
+  font-style: italic;
+  margin-left: 10px;
+}
