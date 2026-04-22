@@ -1,70 +1,138 @@
 <!doctype html>
 <html lang="pt-br">
- <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <meta charset="UTF-8">
-  <title>ArlonCafe Playlist</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <!-- Player de Musica -->
-<div class="playlist-bar">
-    <!-- Botões de controle -->
-<button id="prev"><i class="fa-solid fa-backward"></i></button>
-<button id="play"><i class="fa-solid fa-play"></i></button>
-<button id="next"><i class="fa-solid fa-forward"></i></button>
-
-
-    <!-- Barra de progresso -->
-    <input type="range" id="progress" value="0" step="1">
-
-    <!-- Controle de volume -->
-     
-     <i id="volume-icon" class="fa-solid fa-volume-high"></i>
-    <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
-
-    <!-- Informações da faixa -->
-    <span id="track-info">Nenhuma música carregada</span>
-  </div>
-
-  <!-- Elemento de áudio -->
-  <audio id="audio"></audio>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS para desktop -->
+    <link
+      rel="stylesheet"
+      href="style-desktop.css"
+      media="(min-width: 769px)"
+    />
+    <!-- CSS para mobile -->
+    <link rel="stylesheet" href="style-mobile.css" media="(max-width: 768px)" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Cafe@.com</title>
+  </head>
+  <body>
+    <div class="message-balloon" id="musicMessage">
+      Aperte Play e escute minhas musicas ♫
     </div>
-    <!-- Primeira seção -->
+    <!-- Barra lateral -->
+    <nav class="sidebar">
+      <ul>
+        <li>
+          <a href="#hero" class="nav-inicio"
+            ><i class="fas fa-home icon"></i><span class="text">Início</span></a
+          >
+        </li>
+        <li>
+          <a href="#sobre" class="nav-sobre"
+            ><i class="fas fa-user icon"></i
+            ><span class="text">Sobre mim</span></a
+          >
+        </li>
+        <li>
+          <a href="#agenda" class="nav-agenda"
+            ><i class="fas fa-calendar-alt icon"></i
+            ><span class="text">Agenda</span></a
+          >
+        </li>
+        <li>
+          <a href="#galeria" class="nav-galeria"
+            ><i class="fas fa-image icon"></i
+            ><span class="text">Galeria</span></a
+          >
+        </li>
+        <li class="nav-player"></li>
+        <li class="nav-player">
+          <div class="music-indicator" onclick="togglePlayer()">
+            <div id="musicBall" class="ball">
+              <i class="fas fa-music"></i>
+            </div>
+          </div>
+
+          <div id="playerContainer" class="player hidden">
+            <audio id="player"></audio>
+            <div class="controls">
+              <button onclick="prevSong()">
+                <i class="fas fa-backward"></i>
+              </button>
+              <button id="playPauseBtn" onclick="playPause()">
+                <i class="fas fa-play"></i>
+              </button>
+              <button onclick="nextSong()">
+                <i class="fas fa-forward"></i>
+              </button>
+            </div>
+            <div class="progress">
+              <div id="progress-bar" class="progress-bar"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header / Hero -->
     <section id="hero" class="hero">
       <div class="overlay">
-        <h1>THIS IS<br />RHYTHM & SOUL</h1>
-        <p>Experience three days of unforgettable performances...</p>
-        <a href="#info" class="btn">LEARN MORE</a>
+        <div class="hero-text">
+          <div id="titulo">
+            <img src="Logo/1.svg" alt="Elemento SVG" />
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Segunda seção -->
-    <section id="info" class="info">
-      <h2>A CELEBRATION OF SOUND</h2>
+    <!-- Segunda seção Info > Sobre -->
+    <section id="sobre" class="info">
+      <h2>Sobre mim</h2>
       <p>
-        Immerse yourself in a celebration of creativity, culture, and sound...
+        Cantor de bares e restaurantes, com repertório voltado para sertanejo e
+        MPB. Já se apresentou em diversos locais e traz sempre energia e emoção
+        para o público.
       </p>
+    </section>
+
+    <!-- Agenda - Experiencia -->
+    <section id="agenda" class="agenda">
+      <h2>Agenda</h2>
+      <ul>
+        <li>Bar X - São Paulo</li>
+        <li>Restaurante Y - Praia Grande</li>
+        <li>Disponível para novos eventos</li>
+      </ul>
+    </section>
+
+    <!-- Aqui entram imagens e embeds de vídeo -->
+    <section id="galeria" class="galeria">
+      <h2>Galeria</h2>
+      <p>Confira momentos das apresentações:</p>
     </section>
 
     <!-- Rodapé -->
     <footer class="footer">
-      <p>&copy; 2026 Rhythm & Soul Festival. Todos os direitos reservados.</p>
+      <p>&copy; 2026 Cafe@.com. Todos os direitos reservados</p>
       <p>
         <a href="#hero" class="back-top">Voltar ao topo</a> |
-        <a href="#info">Informações</a>
+        <a href="#info">Informações</a>|
+        <a href="https://wa.me/seunumerowhatsapp" target="_blank">WhatsApp</a> |
+        <a href="https://instagram.com/seuusuario" target="_blank">Instagram</a>
+        |
+        <a href="mailto:seuemail@email.com">E-mail</a>
       </p>
     </footer>
-
-    <!-- Botão Voltar ao topo -->
-    <div>
-      <button id="backToTop">↑ Topo</button>
-
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script src="script.js"></script>
-    </div>
   </body>
+  <script src="script.js"></script>
 </html>
