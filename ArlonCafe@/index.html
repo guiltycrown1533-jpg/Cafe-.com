@@ -29,109 +29,139 @@
     <div class="message-balloon" id="musicMessage">
       Aperte Play e escute minhas musicas ♫
     </div>
+
     <!-- Barra lateral -->
     <nav class="sidebar">
       <ul>
         <li>
-          <a href="#hero" class="nav-inicio"
-            ><i class="fas fa-home icon"></i><span class="text">Início</span></a
-          >
+          <a href="#hero" class="nav-inicio">
+            <i class="fas fa-home icon"></i>
+            <span class="text">Início</span>
+          </a>
         </li>
         <li>
           <a href="#sobre" class="nav-sobre"
-            ><i class="fas fa-user icon"></i
-            ><span class="text">Sobre mim</span></a
-          >
+            ><i class="fas fa-user icon"></i><span class="text">Sobre mim</span>
+          </a>
         </li>
         <li>
           <a href="#agenda" class="nav-agenda"
             ><i class="fas fa-calendar-alt icon"></i
-            ><span class="text">Agenda</span></a
-          >
+            ><span class="text">Agenda</span>
+          </a>
         </li>
         <li>
-          <a href="#galeria" class="nav-galeria"
-            ><i class="fas fa-image icon"></i
-            ><span class="text">Galeria</span></a
-          >
-        </li>
-        <li class="nav-player"></li>
-        <li class="nav-player">
-          <div class="music-indicator" onclick="togglePlayer()">
-            <div id="musicBall" class="ball">
-              <i class="fas fa-music"></i>
-            </div>
-          </div>
-
-          <div id="playerContainer" class="player hidden">
-            <audio id="player"></audio>
-            <div class="controls">
-              <button onclick="prevSong()">
-                <i class="fas fa-backward"></i>
-              </button>
-              <button id="playPauseBtn" onclick="playPause()">
-                <i class="fas fa-play"></i>
-              </button>
-              <button onclick="nextSong()">
-                <i class="fas fa-forward"></i>
-              </button>
-            </div>
-            <div class="progress">
-              <div id="progress-bar" class="progress-bar"></div>
-            </div>
-          </div>
+          <a href="#galeria" class="nav-galeria">
+            <i class="fas fa-image icon"></i>
+            <span class="text">Galeria</span>
+          </a>
         </li>
       </ul>
+
+      <div class="nav-player">
+        <div class="music-indicator" onclick="togglePlayer()">
+          <div id="musicBall" class="ball">
+            <i class="fas fa-music"></i>
+          </div>
+        </div>
+      </div>
+
+      <div id="playerContainer">
+        <audio id="player"></audio>
+        <div class="controls">
+          <button onclick="prevSong()">
+            <i class="fas fa-backward"></i>
+          </button>
+          <button id="playPauseBtn" onclick="playPause()">
+            <i class="fas fa-play"></i>
+          </button>
+          <button onclick="nextSong()">
+            <i class="fas fa-forward"></i>
+          </button>
+        </div>
+        <div class="progress">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+      </div>
     </nav>
 
     <!-- Header / Hero -->
     <section id="hero" class="hero">
-      <div class="overlay">
-        <div class="hero-text">
-          <div id="titulo">
-            <img src="Logo/1.svg" alt="Elemento SVG" />
-          </div>
-        </div>
-      </div>
+      <div id="titulo"><img src="Logo/1.svg" alt="Elemento SVG" /></div>
+      <div class="hero-text"></div>
+      <div class="overlay"></div>
     </section>
 
     <!-- Segunda seção Info > Sobre -->
     <section id="sobre" class="info">
-      <h2>Sobre mim</h2>
-      <p>
-        Cantor de bares e restaurantes, com repertório voltado para sertanejo e
-        MPB. Já se apresentou em diversos locais e traz sempre energia e emoção
-        para o público.
-      </p>
-    </section>
+      <div class="info-container">
+        <div class="info-image">
+          <img src="Imagens/Cantor.jpg" alt="Cantor Café@.com" />
+        </div>
 
+        <div class="info-glass-card">
+          <h2>Sobre mim</h2>
+          <p>
+            Cantor de bares e restaurantes, com repertório voltado para
+            sertanejo e MPB. Já se apresentou em diversos locais e traz sempre
+            energia e emoção para o público.
+          </p>
+
+          <div class="especialidades">
+            <span><i class="fas fa-check"></i> Casamentos</span>
+            <span><i class="fas fa-check"></i> Bares & Restaurantes</span>
+            <span><i class="fas fa-check"></i> Eventos Corporativos</span>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Agenda - Experiencia -->
     <section id="agenda" class="agenda">
       <h2>Agenda</h2>
-      <ul>
-        <li>Bar X - São Paulo</li>
-        <li>Restaurante Y - Praia Grande</li>
-        <li>Disponível para novos eventos</li>
-      </ul>
+      <div class="agenda-container">
+        <div class="agenda-item">
+          <span class="data">25/04</span>
+          <span class="local">Bar X - São Paulo</span>
+        </div>
+        <div class="agenda-item">
+          <span class="data">30/04</span>
+          <span class="local">Restaurante Y - Praia Grande</span>
+        </div>
+        <div class="agenda-item disponivel">
+          <span class="local">Disponível para novos eventos</span>
+        </div>
+      </div>
     </section>
-
-    <!-- Aqui entram imagens e embeds de vídeo -->
+    <!-- Galeria imagens vídeo -->
     <section id="galeria" class="galeria">
-      <h2>Galeria</h2>
-      <p>Confira momentos das apresentações:</p>
+      <div class="galeria-header">
+        <h2>Galeria</h2>
+        <p>Confira momentos das apresentações</p>
+      </div>
+
+      <div class="galeria-grid">
+        <div class="galeria-item">
+          <img src="foto1.jpg" alt="Apresentação no Bar" />
+        </div>
+        <div class="galeria-item">
+          <img src="foto2.jpg" alt="Show em Casamento" />
+        </div>
+        <div class="galeria-item">
+          <img src="foto3.jpg" alt="Evento corporativo" />
+        </div>
+      </div>
     </section>
 
     <!-- Rodapé -->
     <footer class="footer">
       <p>&copy; 2026 Cafe@.com. Todos os direitos reservados</p>
-      <p>
-        <a href="#hero" class="back-top">Voltar ao topo</a> |
-        <a href="#info">Informações</a>|
-        <a href="https://wa.me/seunumerowhatsapp" target="_blank">WhatsApp</a> |
-        <a href="https://instagram.com/seuusuario" target="_blank">Instagram</a>
-        |
-        <a href="mailto:seuemail@email.com">E-mail</a>
-      </p>
+      <div class="footer-links">
+        <a href="#hero">Voltar ao topo</a>
+        <a href="#sobre">Informações</a>
+        <a href="#">WhatsApp</a>
+        <a href="#">Instagram</a>
+        <a href="#">E-mail</a>
+      </div>
     </footer>
   </body>
   <script src="script.js"></script>

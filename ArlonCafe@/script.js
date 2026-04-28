@@ -1,7 +1,4 @@
-const playlist = [
-  "audio/1.mp3", 
-  "audio/2.mp3"
-];
+const playlist = ["audio/1.mp3", "audio/2.mp3"];
 
 let currentIndex = 0;
 const player = document.getElementById("player");
@@ -52,13 +49,6 @@ player.addEventListener("pause", () => {
   messageBalloon.classList.remove("hidden");
 });
 
-// Mostrar/ocultar player ao clicar na bolinha
-function togglePlayer() {
-  playerContainer.classList.toggle("hidden");
-}
-
-
-
 function smoothScrollTo(targetId, duration = 1000) {
   const target = document.getElementById(targetId);
   if (!target) return;
@@ -90,8 +80,8 @@ function smoothScrollTo(targetId, duration = 1000) {
 }
 
 // Aplica nos links da navbar
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function(e) {
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
     e.preventDefault();
     const targetId = this.getAttribute("href").substring(1); // remove o "#"
     smoothScrollTo(targetId, 1000); // duração de 1 segundo
