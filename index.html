@@ -87,9 +87,102 @@
 
     <!-- Header / Hero -->
     <section id="hero" class="hero">
-      <div id="titulo"><img src="Logo/1.svg" alt="Elemento SVG" /></div>
+      <!-- 1. Elementos de Identidade (Topo e Laterais) -->
+      <div id="titulo">
+        <img src="Logo/1.svg" alt="Elemento SVG" />
+      </div>
+
+      <div class="hero-tagline">
+        <p>Sertanejo & MPB</p>
+        <span>Acústico de Alto Nível</span>
+      </div>
+
+      <div class="status-card">
+        <span class="status-dot"></span>
+        <p>Disponível para shows em 2026</p>
+      </div>
+
+      <div class="visualizer-container">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+
+      <!-- 2. Elementos de Fundo -->
       <div class="hero-text"></div>
       <div class="overlay"></div>
+
+      <!-- 3. Container de Navegação (Apenas os botões de baixo) -->
+      <div class="hero-nav-container">
+        <!-- Grupo de Seções Internas -->
+        <div class="nav-group">
+          <div class="nav-item">
+            <span class="nav-tooltip">Conheça minha trajetória</span>
+            <a href="#sobre" class="glass-btn"><i class="fas fa-user"></i></a>
+          </div>
+          <div class="nav-item">
+            <span class="nav-tooltip">Confira as próximas datas</span>
+            <a href="#agenda" class="glass-btn">
+              <i class="fas fa-calendar-alt"></i>
+            </a>
+          </div>
+          <div class="nav-item">
+            <span class="nav-tooltip">Veja fotos e vídeos</span>
+            <a href="#galeria" class="glass-btn"
+              ><i class="fas fa-image"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="nav-divider"></div>
+
+        <!-- Grupo de Redes Sociais -->
+        <div class="nav-group">
+          <div class="nav-item">
+            <span class="nav-tooltip">Acompanhe no Facebook</span>
+            <a href="#" class="glass-btn"><i class="fab fa-facebook-f"></i></a>
+          </div>
+          <div class="nav-item">
+            <span class="nav-tooltip">Siga no Instagram</span>
+            <a href="#" class="glass-btn"><i class="fab fa-instagram"></i></a>
+          </div>
+          <div class="nav-item">
+            <span class="nav-tooltip">Fale comigo agora</span>
+            <a href="#" class="glass-btn"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Segunda seção Info > Sobre -->
@@ -140,14 +233,28 @@
       </div>
 
       <div class="galeria-grid">
-        <div class="galeria-item">
-          <img src="foto1.jpg" alt="Apresentação no Bar" />
+        <!-- Item de Vídeo do YouTube -->
+        <div class="galeria-item video">
+          <iframe
+            src="https://www.youtube.com/embed/SEU_ID"
+            allowfullscreen
+          ></iframe>
+          <div class="legenda">Show ao vivo - Café@.com</div>
         </div>
+
+        <!-- Item de Foto (Exemplo de como manter as fotos juntas) -->
         <div class="galeria-item">
-          <img src="foto2.jpg" alt="Show em Casamento" />
+          <img src="suafoto.jpg" alt="Evento" />
+          <div class="legenda">Bastidores do Evento</div>
         </div>
-        <div class="galeria-item">
-          <img src="foto3.jpg" alt="Evento corporativo" />
+
+        <!-- Outro Vídeo -->
+        <div class="galeria-item video">
+          <iframe
+            src="https://www.youtube.com/embed/SEU_ID"
+            allowfullscreen
+          ></iframe>
+          <div class="legenda">Show ao vivo - Café@.com</div>
         </div>
       </div>
     </section>
@@ -163,6 +270,10 @@
         <a href="#">E-mail</a>
       </div>
     </footer>
+    <a href="#hero" class="back-to-top" id="backToTop">
+      <i class="fas fa-arrow-up"></i>
+      <span class="back-text">Início</span>
+    </a>
   </body>
   <script src="script.js"></script>
 </html>

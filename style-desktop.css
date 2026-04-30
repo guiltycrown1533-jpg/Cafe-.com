@@ -19,6 +19,200 @@ body {
   align-items: center;
   position: relative;
   z-index: 10;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5) 80%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to bottom, black 98%, transparent 100%);
+}
+
+/* Container principal centralizado na base do Hero */
+.hero-nav-container {
+  position: absolute;
+  bottom: 50px;
+  right: 40px; /* Move para a direita com um respiro da borda */
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 20;
+
+  /* Removemos o left: 50% e o transform para evitar o bug visual */
+  left: auto;
+  transform: none;
+}
+
+.hero-nav-container::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  width: 100%;
+  height: 20px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 136, 0, 0.2) 0%,
+    transparent 70%
+  );
+  z-index: -1;
+}
+
+.nav-group {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 15px; /* Aumente o respiro entre os grupos */
+  pointer-events: none; /* Impede que ele interfira no mouse */
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* O texto explicativo (Tooltip) */
+.nav-tooltip {
+  position: absolute;
+  bottom: 85px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  border: 1px solid rgba(255, 136, 0, 0.5);
+}
+
+.nav-item:hover .nav-tooltip {
+  opacity: 1;
+  transform: translateY(-10px);
+}
+
+/* O Botão de Vidro */
+.glass-btn {
+  width: 70px;
+  height: 70px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  z-index: 99;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-font-smoothing: antialiased;
+  transform: translateZ(0);
+}
+
+.glass-btn:hover {
+  background: rgba(255, 136, 0, 0.3) !important;
+  border-color: #ff8800;
+  color: #ff8800;
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.status-card {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 136, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 20;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #00ff00; /* Verde para "Disponível" */
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.status-card p {
+  color: #fff;
+  font-size: 0.8rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-tagline {
+  position: absolute;
+  top: 45%; /* Ajuste conforme a altura da logo */
+  left: 140px;
+  z-index: 20;
+  border-left: 3px solid #ff8800;
+  padding-left: 20px;
+}
+
+.hero-tagline p {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: #ff8800;
+  margin: 0;
+  font-weight: 700;
+}
+
+.hero-tagline span {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.visualizer-container {
+  position: absolute;
+  left: 140px;
+  bottom: 120px; /* Ajuste para não bater nos botões */
+  display: flex;
+  align-items: flex-end;
+  gap: 4px; /* Espaço entre barras */
+  height: 80px; /* Altura total do container maior */
+  z-index: 0;
+}
+
+.bar {
+  width: 6px; /* Barras um pouco mais largas */
+  height: 8px; /* Altura mínima */
+  background: #ff8800;
+  border-radius: 3px; /* Bordas arredondadas para um look moderno */
+  transition: height 0.15s ease;
+  box-shadow: 0 0 10px rgba(255, 136, 0, 0.3);
+}
+
+/* Criar variações de tempo para cada barra no CSS */
+@keyframes bounce {
+  from {
+    height: 5px;
+  }
+  to {
+    height: 40px;
+  }
 }
 
 /*Cafe@.com*/
@@ -101,7 +295,7 @@ body {
   font-size: 14px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   transition: opacity 0.3s ease;
-  z-index: 1;
+  z-index: 11;
 }
 
 .message-balloon.hidden {
@@ -211,7 +405,7 @@ body {
   align-items: center;
   padding: 4rem 2rem;
   box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .info-container {
@@ -312,7 +506,7 @@ body {
 }
 /* Agenda ---------------------------------------------------*/
 .agenda {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .agenda-container {
@@ -370,7 +564,7 @@ body {
 /* Galeria -------------------------------------------------- */
 .galeria {
   padding: 80px 40px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .galeria-header h2 {
@@ -399,18 +593,49 @@ body {
 }
 
 .galeria-item {
-  height: 250px;
+  position: relative;
   overflow: hidden;
   border-radius: 15px;
-  border: 3px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 136, 0, 0.2);
   transition: all 0.4s ease;
+  aspect-ratio: 16 / 9; 
+}
+
+.galeria-item.video .legenda {
+  pointer-events: none;
+}
+
+.galeria-item iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Legenda discreta que aparece no hover */
+.legenda {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: #fff;
+  padding: 10px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.galeria-item:hover .legenda {
+  opacity: 1;
 }
 
 .galeria-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Garante que a foto preencha o espaço sem deformar */
+  object-fit: cover; 
+  display: block;
   transition: transform 0.5s ease;
 }
 
@@ -560,4 +785,52 @@ body {
   background: #ff8800;
   width: 0%;
   transition: width 0.1s linear;
+}
+
+.back-to-top {
+  position: fixed;
+  right: 33px; /* Afastei um pouco mais da borda para não colar */
+  bottom: 24px;
+  width: 80px; /* Aumentado de 60px para 80px */
+  height: 80px; /* Aumentado de 60px para 80px */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 136, 0, 0.6); /* Borda um pouco mais grossa */
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ff8800;
+  text-decoration: none;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.back-to-top i {
+  font-size: 1.6rem; /* Seta maior */
+  margin-bottom: 4px;
+}
+
+.back-text {
+  font-size: 0.75rem; /* Texto "Início" mais legível */
+  text-transform: uppercase;
+  font-weight: 800; /* Mais negrito para destacar */
+  letter-spacing: 1px;
+}
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  /* Brilho suave que lembra uma estrela */
+  box-shadow: 0 0 20px rgba(255, 136, 0, 0.2);
+}
+
+.back-to-top:hover {
+  background: rgba(255, 136, 0, 0.3);
+  transform: scale(1.15); /* Aumenta um pouco mais no hover */
+  box-shadow: 0 0 30px rgba(255, 136, 0, 0.6);
+  color: #ffffff; /* A seta fica branca no hover para brilhar mais */
 }
