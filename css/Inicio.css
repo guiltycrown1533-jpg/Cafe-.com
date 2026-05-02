@@ -1,0 +1,561 @@
+#hero {
+  height: 100vh;
+  margin-left: 120px;
+  background: url("../Imagens/1.2.JPG") no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5) 80%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to bottom, black 98%, transparent 100%);
+}
+
+/* Container principal centralizado na base do Hero */
+.hero-nav-container {
+  position: absolute;
+  bottom: 50px;
+  right: 40px; /* Move para a direita com um respiro da borda */
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 20;
+
+  /* Removemos o left: 50% e o transform para evitar o bug visual */
+  left: auto;
+  transform: none;
+}
+
+.hero-nav-container::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  width: 100%;
+  height: 20px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 136, 0, 0.2) 0%,
+    transparent 70%
+  );
+  z-index: -1;
+}
+
+.nav-group {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 15px; /* Aumente o respiro entre os grupos */
+  pointer-events: none; /* Impede que ele interfira no mouse */
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* O texto explicativo (Tooltip) */
+.nav-tooltip {
+  position: absolute;
+  bottom: 85px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  border: 1px solid rgba(255, 136, 0, 0.5);
+}
+
+.nav-item:hover .nav-tooltip {
+  opacity: 1;
+  transform: translateY(-10px);
+}
+
+/* O Botão de Vidro */
+.glass-btn {
+  width: 70px;
+  height: 70px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  z-index: 99;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-font-smoothing: antialiased;
+  transform: translateZ(0);
+}
+
+.glass-btn:hover {
+  background: rgba(255, 136, 0, 0.3) !important;
+  border-color: #ff8800;
+  color: #ff8800;
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.status-card {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 136, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 20;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #00ff00; /* Verde para "Disponível" */
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.status-card p {
+  color: #fff;
+  font-size: 0.8rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-tagline {
+  position: absolute;
+  top: 45%; /* Ajuste conforme a altura da logo */
+  left: 140px;
+  z-index: 20;
+  border-left: 3px solid #ff8800;
+  padding-left: 20px;
+}
+
+.hero-tagline p {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: #ff8800;
+  margin: 0;
+  font-weight: 700;
+}
+
+.hero-tagline span {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.visualizer-container {
+  position: absolute;
+  left: 140px;
+  bottom: 120px; /* Ajuste para não bater nos botões */
+  display: flex;
+  align-items: flex-end;
+  gap: 4px; /* Espaço entre barras */
+  height: 80px; /* Altura total do container maior */
+  z-index: 0;
+}
+
+.bar {
+  width: 6px; /* Barras um pouco mais largas */
+  height: 8px; /* Altura mínima */
+  background: #ff8800;
+  border-radius: 3px; /* Bordas arredondadas para um look moderno */
+  transition: height 0.15s ease;
+  box-shadow: 0 0 10px rgba(255, 136, 0, 0.3);
+}
+
+/* Criar variações de tempo para cada barra no CSS */
+@keyframes bounce {
+  from {
+    height: 5px;
+  }
+  to {
+    height: 40px;
+  }
+}
+
+/*Cafe@.com*/
+#titulo {
+  position: absolute;
+  left: 140px;
+  top: 20px;
+  z-index: 10;
+  width: clamp(280px, 30vw, 500px);
+  height: auto;
+  margin-top: -60px;
+  animation: aparecertitulo 2s ease-in-out forwards;
+}
+#titulo img {
+  width: 100%;
+  height: auto;
+}
+@keyframes aparecertitulo {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+    filter: drop-shadow(0 0 0px orange);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: drop-shadow(0 0 15px orange);
+  }
+}
+
+.hero h1 {
+  font-family: "Urbanist", sans-serif;
+  font-weight: 900;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  color: #f4d35e;
+}
+
+.hero p {
+  font-family: "Urbanist", sans-serif;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero-text {
+  position: relative;
+  max-width: 600px;
+  padding: 2rem;
+  text-align: left;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.6) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.hero .overlay {
+  position: relative;
+  max-width: 600px;
+  padding: 2rem;
+  text-align: left;
+}
+
+.message-balloon {
+  position: fixed;
+  left: 130px;
+  bottom: 37px;
+  background: #ff8800;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease;
+  z-index: 11;
+}
+
+.message-balloon.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.info,
+.agenda,
+.galeria {
+  min-height: 100vh;
+  margin-left: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+/* Sobre -----------------------------------------------------*/
+.info {
+  min-height: 100vh;
+  margin-left: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.info-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.info-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.info-image img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 20px 20px 0px #ff8800;
+  display: block;
+  object-fit: cover;
+}
+@media (max-width: 1200px) {
+  .info-container {
+    gap: 30px;
+  }
+  .info-image img {
+    max-width: 350px;
+  }
+}
+
+.info-glass-card {
+  flex: 1.2;
+  text-align: left;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-glass-card h2 {
+  font-size: 3rem;
+  color: #ff8800;
+  margin-bottom: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.info-glass-card h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #fff;
+  margin-top: 10px;
+}
+
+.info-glass-card p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #ffffff;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.especialidades span {
+  background: #ff8800;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 136, 0, 0.3);
+}
+
+.especialidades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.especialidades span {
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #ff8800;
+  border: 2px solid #ff8800;
+  box-shadow: 4px 4px 0px rgba(255, 136, 0, 0.1);
+}
+/* Agenda ---------------------------------------------------*/
+.agenda {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.agenda-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.agenda-item {
+  background: rgba(0, 0, 0, 0.1); /* Fundo branco bem transparente */
+  backdrop-filter: blur(10px); /* O efeito de vidro fosco */
+  -webkit-backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.agenda-item:hover {
+  transform: translateX(10px);
+  background: rgba(255, 136, 0, 0.2); /* Brilho laranja ao passar o mouse */
+  border-color: #ff8800;
+}
+
+.agenda h2 {
+  color: #ff8800; /* Laranja para combinar com o logo */
+  font-size: 3rem;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.data {
+  color: #ff8800;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.local {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.disponivel {
+  justify-content: center;
+  border: 1px dashed #ff8800; /* Borda tracejada para indicar vaga */
+  cursor: pointer;
+}
+/* Galeria -------------------------------------------------- */
+.galeria {
+  padding: 80px 40px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.galeria-header h2 {
+  color: #ff8800;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.galeria-header p {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  background: rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.galeria-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 136, 0, 0.2);
+  transition: all 0.4s ease;
+  aspect-ratio: 16 / 9; 
+}
+
+.galeria-item.video .legenda {
+  pointer-events: none;
+}
+
+.galeria-item iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Legenda discreta que aparece no hover */
+.legenda {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: #fff;
+  padding: 10px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.galeria-item:hover .legenda {
+  opacity: 1;
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.galeria-item:hover {
+  border-color: #ff8800;
+  transform: translateY(-10px);
+}
+
+.galeria-item:hover img {
+  transform: scale(1.1); /* Zoom suave na foto */
+  filter: brightness(1.1);
+}

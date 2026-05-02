@@ -1,0 +1,125 @@
+.glass-btn {
+  width: 70px;
+  height: 70px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  color: #fff;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.glass-btn:hover {
+  background: rgba(255, 136, 0, 0.2) !important;
+  transform: translateY(-5px);
+  color: #ff8800;
+}
+
+.nav-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 10px;
+}
+
+.visualizer-container {
+  position: absolute;
+  left: 140px;
+  bottom: 120px;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 80px;
+  z-index: 15;
+}
+
+.bar {
+  width: 6px;
+  height: 8px;
+  background: #ff8800;
+  border-radius: 3px;
+  transition: height 0.15s ease;
+}
+
+.ball {
+  width: 65px;
+  height: 65px;
+  background-color: #ff8800; /* Laranja sólido da imagem */
+  border-radius: 50%; /* Faz ficar redondo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(255, 136, 0, 0.4);
+  cursor: pointer;
+  /* CORREÇÃO DO GIRO: Centraliza o eixo */
+  transform-origin: center center;
+}
+
+.ball i {
+  color: white;
+  font-size: 1.8rem;
+}
+
+.ball.playing {
+  animation: spin 3s linear infinite !important;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.controls {
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+}
+
+.controls button {
+  width: 35px;
+  height: 35px;
+  background-color: #ff8800; 
+  border: none;
+  border-radius: 8px; 
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  padding: 0;
+}
+
+.controls button:hover {
+  transform: scale(1.05);
+  background-color: #ff9922;
+}
+
+.controls button i {
+  font-size: 1rem;
+}
+
+/* Barra de Progresso fina e discreta */
+.progress {
+  width: 85%;            
+  height: 4px;
+  background: rgb(204, 163, 86);
+  border-radius: 10px;
+  margin-left: auto;     
+  margin-right: auto;    
+  margin-top: 20px;      
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #ff8800;
+  width: 0%;
+}

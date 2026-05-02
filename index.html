@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Ícones e Fontes Externas -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -11,21 +13,26 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display:wght@700&display=swap"
       rel="stylesheet"
     />
-    <!-- CSS para desktop -->
-    <link
-      rel="stylesheet"
-      href="style-desktop.css"
-      media="(min-width: 769px)"
-    />
-    <!-- CSS para mobile -->
-    <link rel="stylesheet" href="style-mobile.css" media="(max-width: 768px)" />
     <link
       href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Estilos CSS Separados por Função -->
+    <link rel="stylesheet" href="css/sidebar.css" />
+    <link rel="stylesheet" href="css/Inicio.css" />
+    <link rel="stylesheet" href="css/galeria.css" />
+    <link rel="stylesheet" href="css/agenda.css" />
+    <link rel="stylesheet" href="css/rodape.css" />    
+    <link rel="stylesheet" href="css/sobre.css" />
+    <link rel="stylesheet" href="css/player.css" />
+    <link rel="stylesheet" href="css/componentes.css" />
+
     <title>Cafe@.com</title>
   </head>
+
   <body>
+    <!-- Balão de Mensagem -->
     <div class="message-balloon" id="musicMessage">
       Aperte Play e escute minhas musicas ♫
     </div>
@@ -34,30 +41,31 @@
     <nav class="sidebar">
       <ul>
         <li>
-          <a href="#hero" class="nav-inicio">
-            <i class="fas fa-home icon"></i>
-            <span class="text">Início</span>
-          </a>
+          <a href="#hero" class="nav-inicio"
+            ><i class="fas fa-home icon"></i><span class="text">Início</span></a
+          >
         </li>
         <li>
           <a href="#sobre" class="nav-sobre"
-            ><i class="fas fa-user icon"></i><span class="text">Sobre mim</span>
-          </a>
+            ><i class="fas fa-user icon"></i
+            ><span class="text">Sobre mim</span></a
+          >
         </li>
         <li>
           <a href="#agenda" class="nav-agenda"
             ><i class="fas fa-calendar-alt icon"></i
-            ><span class="text">Agenda</span>
-          </a>
+            ><span class="text">Agenda</span></a
+          >
         </li>
         <li>
-          <a href="#galeria" class="nav-galeria">
-            <i class="fas fa-image icon"></i>
-            <span class="text">Galeria</span>
-          </a>
+          <a href="#galeria" class="nav-galeria"
+            ><i class="fas fa-image icon"></i
+            ><span class="text">Galeria</span></a
+          >
         </li>
       </ul>
 
+      <!-- Player de Música na Sidebar -->
       <div class="nav-player">
         <div class="music-indicator" onclick="togglePlayer()">
           <div id="musicBall" class="ball">
@@ -69,15 +77,11 @@
       <div id="playerContainer">
         <audio id="player"></audio>
         <div class="controls">
-          <button onclick="prevSong()">
-            <i class="fas fa-backward"></i>
-          </button>
+          <button onclick="prevSong()"><i class="fas fa-backward"></i></button>
           <button id="playPauseBtn" onclick="playPause()">
             <i class="fas fa-play"></i>
           </button>
-          <button onclick="nextSong()">
-            <i class="fas fa-forward"></i>
-          </button>
+          <button onclick="nextSong()"><i class="fas fa-forward"></i></button>
         </div>
         <div class="progress">
           <div id="progress-bar" class="progress-bar"></div>
@@ -87,26 +91,114 @@
 
     <!-- Header / Hero -->
     <section id="hero" class="hero">
-      <div id="titulo"><img src="Logo/1.svg" alt="Elemento SVG" /></div>
+      <div id="titulo">
+        <img src="Logo/1.svg" alt="Cafe@.com Logo" />
+      </div>
+
+      <div class="hero-tagline">
+        <p>Sertanejo & MPB</p>
+        <span>Acústico de Alto Nível</span>
+      </div>
+
+      <div class="status-card">
+        <span class="status-dot"></span>
+        <p>Disponível para shows em 2026</p>
+      </div>
+
+      <!-- Container do Visualizador (Barrinhas animadas) -->
+      <div class="visualizer-container">
+        <!-- Divs das barras mantidas (34 barras conforme seu código) -->
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+
       <div class="hero-text"></div>
       <div class="overlay"></div>
+
+      <!-- Botões Flutuantes (Vidro) -->
+      <div class="hero-nav-container">
+        <div class="nav-group">
+          <div class="nav-item">
+            <span class="nav-tooltip">Conheça minha trajetória</span>
+            <a href="#sobre" class="glass-btn"><i class="fas fa-user"></i></a>
+          </div>
+          <div class="nav-item">
+            <span class="nav-tooltip">Confira as próximas datas</span>
+            <a href="#agenda" class="glass-btn"
+              ><i class="fas fa-calendar-alt"></i
+            ></a>
+          </div>
+          <div class="nav-item">
+            <span class="nav-tooltip">Veja fotos e vídeos</span>
+            <a href="#galeria" class="glass-btn"
+              ><i class="fas fa-image"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="nav-divider"></div>
+
+        <div class="nav-group">
+          <div class="nav-item">
+            <span class="nav-tooltip">Acompanhe no Facebook</span>
+            <a href="#" class="glass-btn"><i class="fab fa-facebook-f"></i></a>
+          </div>
+          <div class="nav-item">
+            <span class="nav-tooltip">Siga no Instagram</span>
+            <a href="#" class="glass-btn"><i class="fab fa-instagram"></i></a>
+          </div>
+          <div class="nav-item">
+            <span class="nav-tooltip">Fale comigo agora</span>
+            <a href="#" class="glass-btn"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Segunda seção Info > Sobre -->
+    <!-- Sobre -->
     <section id="sobre" class="info">
       <div class="info-container">
         <div class="info-image">
           <img src="Imagens/Cantor.jpg" alt="Cantor Café@.com" />
         </div>
-
         <div class="info-glass-card">
           <h2>Sobre mim</h2>
           <p>
             Cantor de bares e restaurantes, com repertório voltado para
-            sertanejo e MPB. Já se apresentou em diversos locais e traz sempre
-            energia e emoção para o público.
+            sertanejo e MPB...
           </p>
-
           <div class="especialidades">
             <span><i class="fas fa-check"></i> Casamentos</span>
             <span><i class="fas fa-check"></i> Bares & Restaurantes</span>
@@ -115,39 +207,42 @@
         </div>
       </div>
     </section>
-    <!-- Agenda - Experiencia -->
+
+    <!-- Agenda -->
     <section id="agenda" class="agenda">
       <h2>Agenda</h2>
       <div class="agenda-container">
         <div class="agenda-item">
-          <span class="data">25/04</span>
-          <span class="local">Bar X - São Paulo</span>
+          <span class="data">25/04</span
+          ><span class="local">Bar X - São Paulo</span>
         </div>
         <div class="agenda-item">
-          <span class="data">30/04</span>
-          <span class="local">Restaurante Y - Praia Grande</span>
+          <span class="data">30/04</span
+          ><span class="local">Restaurante Y - Praia Grande</span>
         </div>
         <div class="agenda-item disponivel">
           <span class="local">Disponível para novos eventos</span>
         </div>
       </div>
     </section>
-    <!-- Galeria imagens vídeo -->
+
+    <!-- Galeria -->
     <section id="galeria" class="galeria">
       <div class="galeria-header">
         <h2>Galeria</h2>
         <p>Confira momentos das apresentações</p>
       </div>
-
       <div class="galeria-grid">
-        <div class="galeria-item">
-          <img src="foto1.jpg" alt="Apresentação no Bar" />
+        <div class="galeria-item video">
+          <iframe
+            src="https://www.youtube.com/embed/SEU_ID"
+            allowfullscreen
+          ></iframe>
+          <div class="legenda">Show ao vivo - Café@.com</div>
         </div>
         <div class="galeria-item">
-          <img src="foto2.jpg" alt="Show em Casamento" />
-        </div>
-        <div class="galeria-item">
-          <img src="foto3.jpg" alt="Evento corporativo" />
+          <img src="suafoto.jpg" alt="Evento" />
+          <div class="legenda">Bastidores do Evento</div>
         </div>
       </div>
     </section>
@@ -160,9 +255,27 @@
         <a href="#sobre">Informações</a>
         <a href="#">WhatsApp</a>
         <a href="#">Instagram</a>
-        <a href="#">E-mail</a>
       </div>
     </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <a href="#hero" class="back-to-top" id="backToTop">
+      <i class="fas fa-arrow-up"></i>
+      <span class="back-text">Início</span>
+    </a>
+
+    <!-- Scripts Separados por Função -->
+    <script src="js/player.js"></script>
+    <script src="js/visualizer.js"></script>
+    <script src="js/navigation.js"></script>
+
+    <!-- Script Extra para Abrir/Fechar o Player na Lateral -->
+    <script>
+      function togglePlayer() {
+        const container = document.getElementById("playerContainer");
+        container.style.display =
+          container.style.display === "block" ? "none" : "block";
+      }
+    </script>
   </body>
-  <script src="script.js"></script>
 </html>
