@@ -10,7 +10,6 @@ body {
   z-index: 99;
 }
 
-/* Sidebar Lateral fixa */
 .sidebar {
   position: fixed;
   top: 0;

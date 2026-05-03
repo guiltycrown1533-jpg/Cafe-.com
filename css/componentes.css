@@ -23,14 +23,14 @@
 /*Botão de voltar ao topo -------------------------------*/
 .back-to-top {
   position: fixed;
-  right: 33px; /* Afastei um pouco mais da borda para não colar */
+  right: 33px; 
   bottom: 24px;
-  width: 80px; /* Aumentado de 60px para 80px */
-  height: 80px; /* Aumentado de 60px para 80px */
+  width: 80px; 
+  height: 80px; 
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 2px solid rgba(255, 136, 0, 0.6); /* Borda um pouco mais grossa */
+  border: 2px solid rgba(255, 136, 0, 0.6); 
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -45,26 +45,25 @@
 }
 
 .back-to-top i {
-  font-size: 1.6rem; /* Seta maior */
+  font-size: 1.6rem; 
   margin-bottom: 4px;
 }
 
 .back-text {
-  font-size: 0.75rem; /* Texto "Início" mais legível */
+  font-size: 0.75rem; 
   text-transform: uppercase;
-  font-weight: 800; /* Mais negrito para destacar */
+  font-weight: 800; 
   letter-spacing: 1px;
 }
 .back-to-top.show {
   opacity: 1;
   visibility: visible;
-  /* Brilho suave que lembra uma estrela */
   box-shadow: 0 0 20px rgba(255, 136, 0, 0.2);
 }
 
 .back-to-top:hover {
   background: rgba(255, 136, 0, 0.3);
-  transform: scale(1.15); /* Aumenta um pouco mais no hover */
+  transform: scale(1.15); 
   box-shadow: 0 0 30px rgba(255, 136, 0, 0.6);
-  color: #ffffff; /* A seta fica branca no hover para brilhar mais */
+  color: #ffffff; 
 }

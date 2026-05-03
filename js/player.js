@@ -1,4 +1,10 @@
-const playlist = ["audio/1.mp3", "audio/2.mp3", "audio/3.mp3", "audio/4.mp3", "audio/5.mp3"];
+const playlist = [
+  "audio/1.mp3",
+  "audio/2.mp3",
+  "audio/3.mp3",
+  "audio/4.mp3",
+  "audio/5.mp3",
+];
 let currentIndex = 0;
 
 const player = document.getElementById("player");
@@ -7,7 +13,6 @@ const playPauseBtn = document.getElementById("playPauseBtn");
 const ball = document.getElementById("musicBall");
 const messageBalloon = document.getElementById("musicMessage");
 
-// Otimização: Carrega apenas metadados inicialmente
 player.preload = "metadata";
 player.src = playlist[currentIndex];
 
