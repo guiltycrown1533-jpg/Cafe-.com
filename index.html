@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Ícones e Fontes Externas -->
+   
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -17,27 +17,23 @@
       href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Estilos CSS Separados por Função -->
-    <link rel="stylesheet" href="css/sidebar.css" />
-    <link rel="stylesheet" href="css/Inicio.css" />
-    <link rel="stylesheet" href="css/galeria.css" />
-    <link rel="stylesheet" href="css/agenda.css" />
-    <link rel="stylesheet" href="css/rodape.css" />
-    <link rel="stylesheet" href="css/sobre.css" />
-    <link rel="stylesheet" href="css/player.css" />
-    <link rel="stylesheet" href="css/componentes.css" />
-
+    <link rel="stylesheet" href="a.css" />
     <title>Cafe@.com</title>
   </head>
 
   <body>
-    <!-- Balão de Mensagem -->
+    <button
+      class="hamburger"
+      onclick="document.querySelector('.sidebar').classList.toggle('active')"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+    
     <div class="message-balloon" id="musicMessage">
       Aperte Play e escute minhas musicas ♫
     </div>
 
-    <!-- Barra lateral -->
+    
     <nav class="sidebar">
       <ul>
         <li>
@@ -65,7 +61,7 @@
         </li>
       </ul>
 
-      <!-- Player de Música na Sidebar -->
+     
       <div class="nav-player">
         <div class="music-indicator" onclick="togglePlayer()">
           <div id="musicBall" class="ball">
@@ -89,7 +85,7 @@
       </div>
     </nav>
 
-    <!-- Header / Hero -->
+    
     <section id="hero" class="hero">
       <div id="titulo">
         <img src="Logo/1.svg" alt="Cafe@.com Logo" />
@@ -110,9 +106,9 @@
         <p>Disponível para shows em 2026</p>
       </div>
 
-      <!-- Container do Visualizador  -->
+     
       <div class="visualizer-container">
-        <!-- Divs das barras mantidas -->
+       
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
@@ -152,7 +148,7 @@
       <div class="hero-text"></div>
       <div class="overlay"></div>
 
-      <!-- Botões Flutuantes  -->
+      
       <div class="hero-nav-container">
         <div class="nav-group">
           <div class="nav-item">
@@ -223,7 +219,7 @@
       </div>
     </section>
 
-    <!-- Sobre -->
+    
     <section id="sobre" class="info">
       <div class="info-container">
         <div class="info-image">
@@ -254,12 +250,12 @@
       </div>
     </section>
 
-    <!-- Agenda -->
+    
     <section class="agenda" id="agenda">
       <h2 class="agenda-title">PRÓXIMOS SHOWS</h2>
 
       <div class="agenda-container">
-        <!-- LADO ESQUERDO: LISTA DE DATAS -->
+        
         <div class="agenda-list">
           <button
             class="agenda-item active"
@@ -286,7 +282,7 @@
           </a>
         </div>
 
-        <!-- LADO DIREITO: O MAPA (Onde a mágica acontece) -->
+        
         <div class="agenda-map">
           <iframe
             id="map-frame"
@@ -300,23 +296,23 @@
       </div>
     </section>
 
-    <!-- Galeria -->
+   
     <section class="galeria" id="galeria">
       <h2 class="agenda-title">Momentos Únicos</h2>
 
       <div class="galeria-grid">
-        <!-- BLOCO DE VÍDEOS -->
+        
         <div class="carrossel-container">
           <h3>VÍDEOS</h3>
           <div class="carrossel-track" id="track-video">
-            <div class="carrossel-item">
+            <div class="carrossel-item video-desktop-only">
               <iframe
                 src="https://www.youtube.com/embed/hVpp-ootDv0?si=l58WcOzMDt8F-OZq"
                 frameborder="0"
                 allowfullscreen
               ></iframe>
             </div>
-            <div class="carrossel-item">
+            <div class="carrossel-item video-desktop-only">
               <iframe
                 src="https://www.youtube.com/embed/64ComDPdqp0?si=1mvN6Bg63kR-w5bB"
                 frameborder="0"
@@ -366,12 +362,9 @@
               ></iframe>
             </div>
           </div>
-          <!-- Botões de Vídeo (Adicionados) -->
           <button class="prev" onclick="moveVideo(-1)">❮</button>
           <button class="next" onclick="moveVideo(1)">❯</button>
         </div>
-
-        <!-- BLOCO DE FOTOS -->
         <div class="carrossel-container">
           <h3>FOTOS</h3>
           <div class="carrossel-track" id="track-foto">
@@ -406,13 +399,13 @@
               <img src="https://i.ibb.co/hRZdnX78/DSC-0016.jpg" />
             </div>
           </div>
-          <!-- Botões de Foto -->
+          
           <button class="prev" onclick="moveFoto(-1)">❮</button>
           <button class="next" onclick="moveFoto(1)">❯</button>
         </div>
       </div>
     </section>
-    <!-- Rodapé -->
+    
     <footer class="footer">
       <p>&copy; 2026 Cafe@.com. Todos os direitos reservados</p>
       <div class="footer-links">
@@ -429,18 +422,14 @@
       </div>
     </footer>
 
-    <!-- Botão Voltar ao Topo -->
+    
     <a href="#hero" class="back-to-top" id="backToTop">
       <i class="fas fa-arrow-up"></i>
       <span class="back-text">Início</span>
     </a>
 
-    <!-- Scripts  -->
-    <script src="js/agenda.js"></script>
-    <script src="js/galeria.js"></script>
-    <script src="js/player.js"></script>
-    <script src="js/visualizer.js"></script>
-    <script src="js/navigation.js"></script>  
+  
+    <script src="a.js"></script>
     <script>
       function togglePlayer() {
         const container = document.getElementById("playerContainer");
